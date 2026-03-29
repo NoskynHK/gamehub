@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoskyHK Game Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">NoskynHK</div>
+        <div class="lang-menu">
+            <button onclick="changeLang('it')">🇮🇹 IT</button>
+            <button onclick="changeLang('en')">🇬🇧 EN</button>
+            <button onclick="changeLang('de')">🇩🇪 DE</button>
+        </div>
+    </nav>
+
+    <header>
+        <h1 id="main-title">Benvenuti nella mia Sala Giochi</h1>
+        <p id="main-subtitle">Esplora i progetti creati da Noskyn</p>
+    </header>
+
+    <section class="game-grid">
+        <div class="card">
+            <div class="icon"><i class="fas fa-snake"></i>🐍</div>
+            <h3>Snake Game</h3>
+            <p class="desc" data-it="Il classico gioco del serpente." data-en="The classic snake game." data-de="Das klassische Schlangenspiel."></p>
+            <a href="https://noskynhk.github.io/snakegame/" target="_blank" class="play-btn">Play</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">🧠</div>
+            <h3>Emoji Memory</h3>
+            <p class="desc" data-it="Allena la tua memoria con le emoji." data-en="Train your memory with emojis." data-de="Trainiere dein Gedächtnis con Emojis."></p>
+            <a href="https://noskynhk.github.io/emoji-memory/" target="_blank" class="play-btn">Play</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">🕹️</div>
+            <h3>Core Game</h3>
+            <p class="desc" data-it="Un gioco per passare il tempo." data-en="A game to pass the time." data-de="Ein Spiel, um sich die Zeit zu vertreiben."></p>
+            <a href="https://noskynhk.github.io/coregame/" target="_blank" class="play-btn">Play</a>
+        </div>
+    </section>
+    <footer>
+        <p id="join-us">Unisciti alla community su Discord!</p>
+        <a href="https://discord.gg/SrkgXctQrC" target="_blank" class="discord-btn">
+            <i class="fab fa-discord"></i> Discord Server
+        </a>
+    </footer>
+    <div class="sugg-widget" id="suggWidget">
+    <button class="widget-trigger" onclick="toggleWidget()">
+        <span id="trigger-icon">💡</span>
+    </div>
+
+    <div class="widget-panel" id="widgetPanel">
+        <div class="panel-header">
+            <h3 id="panel-title">Invia un'idea</h3>
+            <button class="close-btn" onclick="toggleWidget()">×</button>
+        </div>
+        
+        <form action="https://formspree.io/f/mojpevpa" method="POST" class="widget-form">
+            <input type="text" name="name" id="field-name" placeholder="Tuo Nickname" required>
+            
+            <select name="game" id="field-game" required>
+                <option value="" disabled selected id="opt-select">Seleziona gioco</option>
+                <option value="Snake">Snake Game</option>
+                <option value="Memory">Emoji Memory</option>
+                <option value="Core">Core Game</option>
+                <option value="New">Nuova Idea</option>
+            </select>
+            
+            <textarea name="message" id="field-msg" placeholder="Descrivi la tua idea..." required></textarea>
+            
+            <button type="submit" class="btn-submit" id="btn-send">Invia ora</button>
+        </form>
+    </div>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>

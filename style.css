@@ -1,0 +1,171 @@
+:root {
+    --primary: #7289da; /* Colore Discord */
+    --accent: #00ffcc;
+    --bg: #0f0c29;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+.logo { font-size: 1.5rem; font-weight: bold; margin-left: 20px; }
+.logo span { color: var(--accent); }
+
+.lang-menu button {
+    background: none;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.lang-menu button:hover { background: white; color: black; }
+
+header { text-align: center; margin: 50px 20px; }
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    width: 80%;
+    max-width: 1000px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+}
+
+.icon { font-size: 50px; margin-bottom: 15px; }
+
+.play-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 25px;
+    background: var(--accent);
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+}
+
+footer { margin-top: auto; padding: 40px; text-align: center; }
+
+.discord-btn {
+    background: var(--primary);
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    display: inline-block;
+    margin-top: 10px;
+}
+/* Posizionamento del Widget */
+.sugg-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    font-family: sans-serif;
+}
+
+/* Il pulsante rotondo */
+.widget-trigger {
+    width: 60px;
+    height: 60px;
+    background: #00ffcc;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 255, 204, 0.4);
+    font-size: 24px;
+    transition: transform 0.3s;
+}
+
+.widget-trigger:hover { transform: scale(1.1); }
+
+/* Il pannello a comparsa */
+.widget-panel {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 300px;
+    background: #1a1a2e;
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 20px;
+    display: none; /* Nascosto all'inizio */
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.close-btn {
+    background: none; border: none; color: #888; font-size: 20px; cursor: pointer;
+}
+
+/* Form interno */
+.widget-form { display: flex; flex-direction: column; gap: 10px; }
+
+.widget-form input, .widget-form select, .widget-form textarea {
+    padding: 10px;
+    background: #0f0c29;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: white;
+}
+
+.widget-form textarea { height: 80px; resize: none; }
+
+.btn-submit {
+    background: #00ffcc;
+    color: #000;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
