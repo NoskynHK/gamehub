@@ -1,17 +1,14 @@
 const translations = {
     it: {
-        title: "Benvenuti nella mia Game Hub",
-        subtitle: "Esplora i progetti creati da Noskyn",
+        title: "Esplora i progetti creati da Noskyn",
         join: "Unisciti alla community su Discord!"
     },
     en: {
-        title: "Welcome to my Game Hub",
-        subtitle: "Explore projects created by Noskyn",
+        title: "Explore projects created by Noskyn",
         join: "Join the community on Discord!"
     },
     de: {
-        title: "Willkommen in meinem Game Hub",
-        subtitle: "Entdecke von Noskyn erstellte Projekte",
+        title: "Entdecke von Noskyn erstellte Projekte",
         join: "Tritt der Community auf Discord bei!"
     }
 };
