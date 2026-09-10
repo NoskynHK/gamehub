@@ -16,7 +16,6 @@ const translations = {
 function changeLang(lang) {
     // Cambia titoli principali
     document.getElementById('main-title').innerText = translations[lang].title;
-    document.getElementById('main-subtitle').innerText = translations[lang].subtitle;
     document.getElementById('join-us').innerText = translations[lang].join;
 
     // Cambia descrizioni card
