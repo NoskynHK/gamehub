@@ -1,6 +1,6 @@
 :root {
     --primary: #7289da;
-    --accent: #00ffcc;
+    --accent: #f2f2f5;
     --bg: #0f0c29;
     --panel: #1a1a2e;
 }
@@ -112,9 +112,8 @@ body.menu-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate
 .side-avatar {
     width: 50px;
     height: 50px;
-    border-radius: 50%;
+    border-radius: 14px;
     object-fit: cover;
-    border: 2px solid var(--accent);
     background: #000;
 }
 
@@ -135,21 +134,28 @@ body.menu-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate
     color: rgba(255,255,255,0.8);
 }
 
-.side-links { display: flex; flex-direction: column; gap: 6px; }
+.side-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 20px;
+    padding: 8px;
+}
 
 .side-links a {
     display: flex;
     align-items: center;
     gap: 12px;
     padding: 12px 14px;
-    border-radius: 10px;
+    border-radius: 14px;
     color: white;
     text-decoration: none;
-    background: rgba(255,255,255,0.04);
+    background: rgba(255,255,255,0.05);
     transition: background .25s, color .25s;
 }
 
-.side-links a:hover { background: rgba(0,255,204,0.12); color: var(--accent); }
+.side-links a:hover { background: rgba(255,255,255,0.14); color: var(--accent); }
 .side-links i { width: 18px; text-align: center; }
 
 .side-social { margin-top: auto; display: flex; flex-direction: column; gap: 10px; }
@@ -157,7 +163,7 @@ body.menu-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate
 .side-social-btn {
     text-align: center;
     padding: 11px;
-    border-radius: 10px;
+    border-radius: 14px;
     text-decoration: none;
     color: white;
     font-weight: 600;
@@ -281,11 +287,11 @@ footer { margin-top: auto; padding: 50px 20px; text-align: center; }
 .widget-trigger {
     width: 60px;
     height: 60px;
-    background: #00ffcc;
+    background: var(--accent);
     border-radius: 50%;
     border: none;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 255, 204, 0.4);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.25);
     font-size: 24px;
     transition: transform 0.3s;
 }
@@ -339,7 +345,7 @@ footer { margin-top: auto; padding: 50px 20px; text-align: center; }
 .widget-form textarea { height: 80px; resize: none; }
 
 .btn-submit {
-    background: #00ffcc;
+    background: var(--accent);
     color: #000;
     border: none;
     padding: 10px;
