@@ -1,51 +1,66 @@
-const translations = {
-    it: {
-        title: "Esplora i progetti creati da Noskyn",
-        join: "Unisciti alla community su Discord!"
-    },
-    en: {
-        title: "Explore projects created by Noskyn",
-        join: "Join the community on Discord!"
-    },
-    de: {
-        title: "Entdecke von Noskyn erstellte Projekte",
-        join: "Tritt der Community auf Discord bei!"
-    }
-};
+/* ===== LINGUE =====
+   Non serve più aggiungere ID a mano: basta mettere
+   data-it="..." data-en="..." data-de="..." su un elemento HTML
+   (o data-ph-it / data-ph-en / data-ph-de per i placeholder). */
 
 function changeLang(lang) {
-    // Cambia titoli principali
-    document.getElementById('main-title').innerText = translations[lang].title;
-    document.getElementById('join-us').innerText = translations[lang].join;
-
-    // Cambia descrizioni card
-    const descriptions = document.querySelectorAll('.desc');
-    descriptions.forEach(d => {
-        d.innerText = d.getAttribute(`data-${lang}`);
+    document.querySelectorAll('[data-it]').forEach(el => {
+        const text = el.getAttribute('data-' + lang);
+        if (text) el.textContent = text;
     });
+
+    document.querySelectorAll('[data-ph-it]').forEach(el => {
+        const text = el.getAttribute('data-ph-' + lang);
+        if (text) el.placeholder = text;
+    });
+
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
+    });
+
+    try { localStorage.setItem('noskyn-lang', lang); } catch (e) {}
 }
 
-// Imposta lingua iniziale
-window.onload = () => changeLang('it');
+/* ===== SIDEBAR ===== */
+function toggleSidebar() {
+    const open = document.getElementById('sidebar').classList.toggle('open');
+    document.getElementById('overlay').classList.toggle('show', open);
+    document.getElementById('sidebar').setAttribute('aria-hidden', !open);
+    document.body.classList.toggle('menu-open', open);
+}
 
-// Funzione per aprire e chiudere il pannello
+function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('overlay').classList.remove('show');
+    document.getElementById('sidebar').setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('menu-open');
+}
+
+/* ===== WIDGET IDEE ===== */
 function toggleWidget() {
     const panel = document.getElementById('widgetPanel');
     panel.style.display = (panel.style.display === 'flex') ? 'none' : 'flex';
 }
 
-// Traduzioni per il Widget
-const widgetTrans = {
-    it: { title: "Invia un'idea", name: "Tuo Nickname", opt: "Seleziona gioco", msg: "Descrivi idea...", btn: "Invia ora" },
-    en: { title: "Send an idea", name: "Your Nickname", opt: "Select game", msg: "Describe idea...", btn: "Send now" },
-    de: { title: "Idee senden", name: "Dein Nickname", opt: "Spiel wählen", msg: "Idee beschreiben...", btn: "Senden" }
-};
-
-// Aggiungi questo pezzo alla tua funzione changeLang(lang)
-function updateWidgetLang(lang) {
-    document.getElementById('panel-title').innerText = widgetTrans[lang].title;
-    document.getElementById('field-name').placeholder = widgetTrans[lang].name;
-    document.getElementById('opt-select').innerText = widgetTrans[lang].opt;
-    document.getElementById('field-msg').placeholder = widgetTrans[lang].msg;
-    document.getElementById('btn-send').innerText = widgetTrans[lang].btn;
+function openIdeaFromSidebar(e) {
+    e.preventDefault();
+    closeSidebar();
+    document.getElementById('widgetPanel').style.display = 'flex';
 }
+
+/* ===== AVVIO ===== */
+window.addEventListener('DOMContentLoaded', () => {
+    let saved = 'it';
+    try { saved = localStorage.getItem('noskyn-lang') || 'it'; } catch (e) {}
+    changeLang(saved);
+});
+
+/* Chiudi tutto con ESC */
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+        closeSidebar();
+        document.getElementById('widgetPanel').style.display = 'none';
+    }
+});
