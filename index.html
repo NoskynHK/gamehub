@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NoskyHK Game Hub</title>
+    <title>Noskyn Project Hub</title>
 
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="apple-touch-icon" href="logo.png">
@@ -13,75 +13,188 @@
 </head>
 <body>
 
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar" id="sidebar" aria-hidden="true">
+        <div class="side-top">
+            <img src="logo.png" alt="Noskyn" class="side-avatar">
+            <div>
+                <h2>Noskyn</h2>
+                <p class="side-role"
+                   data-it="Sviluppo giochi e siti web"
+                   data-en="Games and web development"
+                   data-de="Spiele- und Webentwicklung"></p>
+            </div>
+            <button class="close-side" onclick="toggleSidebar()" aria-label="Chiudi">&times;</button>
+        </div>
+
+        <!-- ===== BIO: cambia qui il testo quando vuoi ===== -->
+        <p class="side-bio"
+           data-it="Ciao! Sono Noskyn. Creo piccoli giochi browser e strumenti web utili, tutti gratuiti e senza registrazione. Ogni progetto nasce da un'idea mia o della community."
+           data-en="Hi! I'm Noskyn. I build small browser games and handy web tools, all free and with no sign-up. Every project starts from an idea of mine or from the community."
+           data-de="Hi! Ich bin Noskyn. Ich entwickle kleine Browserspiele und nützliche Web-Tools, alle kostenlos und ohne Anmeldung. Jedes Projekt entsteht aus einer Idee von mir oder der Community."></p>
+
+        <nav class="side-links">
+            <a href="#games" onclick="closeSidebar()">
+                <i class="fas fa-gamepad"></i>
+                <span data-it="Giochi" data-en="Games" data-de="Spiele"></span>
+            </a>
+            <a href="#tools" onclick="closeSidebar()">
+                <i class="fas fa-globe"></i>
+                <span data-it="Strumenti web" data-en="Web tools" data-de="Web-Tools"></span>
+            </a>
+            <a href="#" onclick="openIdeaFromSidebar(event)">
+                <i class="fas fa-lightbulb"></i>
+                <span data-it="Proponi un'idea" data-en="Send an idea" data-de="Idee senden"></span>
+            </a>
+        </nav>
+
+        <div class="side-social">
+            <a href="https://discord.gg/SrkgXctQrC" target="_blank" class="side-social-btn discord">
+                <i class="fab fa-discord"></i> Discord
+            </a>
+            <!-- ===== INCOLLA QUI IL TUO LINK LINKTREE ===== -->
+            <a href="#" target="_blank" class="side-social-btn linktree">
+                <i class="fas fa-link"></i> Linktree
+            </a>
+        </div>
+    </aside>
+    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+    <!-- ===== NAV ===== -->
     <nav>
-        <div class="logo">NoskynHK</div>
+        <div class="nav-left">
+            <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="logo">Noskyn<span>HK</span></div>
+        </div>
         <div class="lang-menu">
-            <button onclick="changeLang('it')">🇮🇹 IT</button>
-            <button onclick="changeLang('en')">🇬🇧 EN</button>
-            <button onclick="changeLang('de')">🇩🇪 DE</button>
+            <button onclick="changeLang('it')" data-lang-btn="it">🇮🇹 IT</button>
+            <button onclick="changeLang('en')" data-lang-btn="en">🇬🇧 EN</button>
+            <button onclick="changeLang('de')" data-lang-btn="de">🇩🇪 DE</button>
         </div>
     </nav>
 
     <header>
-        <h1 id="main-title">Esplora i progetti creati da Noskyn</h1>
+        <h1 data-it="Noskyn Project Hub" data-en="Noskyn Project Hub" data-de="Noskyn Project Hub"></h1>
+        <p class="subtitle"
+           data-it="Giochi e strumenti web creati da Noskyn."
+           data-en="Games and web tools made by Noskyn."
+           data-de="Spiele und Web-Tools von Noskyn."></p>
     </header>
 
-    <section class="game-grid">
-        <div class="card">
-            <div class="icon"><i class="fas fa-snake"></i>🐍</div>
-            <h3>Snake Game</h3>
-            <p class="desc" data-it="Il classico gioco del serpente." data-en="The classic snake game." data-de="Das klassische Schlangenspiel."></p>
-            <a href="https://noskynhk.github.io/snakegame/" target="_blank" class="play-btn">Play</a>
+    <!-- ===== GIOCHI ===== -->
+    <section id="games" class="block">
+        <div class="block-head">
+            <h2 data-it="Giochi" data-en="Games" data-de="Spiele"></h2>
+            <p data-it="Da giocare subito nel browser."
+               data-en="Play right away in your browser."
+               data-de="Direkt im Browser spielbar."></p>
         </div>
 
-        <div class="card">
-            <div class="icon">🧠</div>
-            <h3>Emoji Memory</h3>
-            <p class="desc" data-it="Allena la tua memoria con le emoji." data-en="Train your memory with emojis." data-de="Trainiere dein Gedächtnis con Emojis."></p>
-            <a href="https://noskynhk.github.io/emoji-memory/" target="_blank" class="play-btn">Play</a>
-        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="icon">🐍</div>
+                <h3>Snake Game</h3>
+                <p class="desc" data-it="Il classico gioco del serpente." data-en="The classic snake game." data-de="Das klassische Schlangenspiel."></p>
+                <a href="https://noskynhk.github.io/snakegame/" target="_blank" class="play-btn"
+                   data-it="Gioca" data-en="Play" data-de="Spielen"></a>
+            </div>
 
-        <div class="card">
-            <div class="icon">🕹️</div>
-            <h3>Tetris</h3>
-            <p class="desc" data-it="Un gioco per passare il tempo." data-en="A game to pass the time." data-de="Ein Spiel, um sich die Zeit zu vertreiben."></p>
-            <a href="https://noskynhk.github.io/tetris/" target="_blank" class="play-btn">Play</a>
+            <div class="card">
+                <div class="icon">🧠</div>
+                <h3>Emoji Memory</h3>
+                <p class="desc" data-it="Allena la tua memoria con le emoji." data-en="Train your memory with emojis." data-de="Trainiere dein Gedächtnis mit Emojis."></p>
+                <a href="https://noskynhk.github.io/emoji-memory/" target="_blank" class="play-btn"
+                   data-it="Gioca" data-en="Play" data-de="Spielen"></a>
+            </div>
+
+            <div class="card">
+                <div class="icon">🕹️</div>
+                <h3>Tetris</h3>
+                <p class="desc" data-it="Un gioco per passare il tempo." data-en="A game to pass the time." data-de="Ein Spiel, um sich die Zeit zu vertreiben."></p>
+                <a href="https://noskynhk.github.io/tetris/" target="_blank" class="play-btn"
+                   data-it="Gioca" data-en="Play" data-de="Spielen"></a>
+            </div>
         </div>
     </section>
+
+    <!-- ===== STRUMENTI WEB ===== -->
+    <section id="tools" class="block">
+        <div class="block-head">
+            <h2 data-it="Strumenti web" data-en="Web tools" data-de="Web-Tools"></h2>
+            <p data-it="Progetti pensati per essere usati, non solo giocati."
+               data-en="Projects built to be used, not just played."
+               data-de="Projekte zum Benutzen, nicht nur zum Spielen."></p>
+        </div>
+
+        <div class="grid">
+            <div class="card tool">
+                <div class="icon">🖼️</div>
+                <h3>Foto Merge</h3>
+                <p class="desc"
+                   data-it="Unisci più foto in un'unica immagine, direttamente dal browser."
+                   data-en="Merge several photos into a single image, right from your browser."
+                   data-de="Mehrere Fotos direkt im Browser zu einem Bild zusammenfügen."></p>
+                <span class="badge"
+                      data-it="Disponibile solo in italiano"
+                      data-en="Italian only"
+                      data-de="Nur auf Italienisch"></span>
+                <!-- ===== INCOLLA QUI IL LINK DI FOTO MERGE ===== -->
+                <a href="#" target="_blank" class="play-btn"
+                   data-it="Apri" data-en="Open" data-de="Öffnen"></a>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p id="join-us">Unisciti alla community su Discord!</p>
-        <a href="https://discord.gg/SrkgXctQrC" target="_blank" class="discord-btn">
-            <i class="fab fa-discord"></i> Discord Server
-        </a>
+        <p data-it="Unisciti alla community su Discord!"
+           data-en="Join the community on Discord!"
+           data-de="Tritt der Community auf Discord bei!"></p>
+        <div class="footer-links">
+            <a href="https://discord.gg/SrkgXctQrC" target="_blank" class="discord-btn">
+                <i class="fab fa-discord"></i> Discord Server
+            </a>
+            <!-- ===== INCOLLA QUI IL TUO LINK LINKTREE ===== -->
+            <a href="#" target="_blank" class="linktree-btn">
+                <i class="fas fa-link"></i> Linktree
+            </a>
+        </div>
     </footer>
+
+    <!-- ===== WIDGET IDEE ===== -->
     <div class="sugg-widget" id="suggWidget">
-    <button class="widget-trigger" onclick="toggleWidget()">
-        <span id="trigger-icon">💡</span>
+        <button class="widget-trigger" onclick="toggleWidget()" aria-label="Idee">💡</button>
+
+        <div class="widget-panel" id="widgetPanel">
+            <div class="panel-header">
+                <h3 data-it="Invia un'idea" data-en="Send an idea" data-de="Idee senden"></h3>
+                <button class="close-btn" onclick="toggleWidget()">&times;</button>
+            </div>
+
+            <form action="https://formspree.io/f/mojpevpa" method="POST" class="widget-form">
+                <input type="text" name="name" required
+                       data-ph-it="Tuo nickname" data-ph-en="Your nickname" data-ph-de="Dein Nickname">
+
+                <select name="game" required>
+                    <option value="" disabled selected
+                            data-it="Seleziona progetto" data-en="Select project" data-de="Projekt wählen"></option>
+                    <option value="Snake">Snake Game</option>
+                    <option value="Memory">Emoji Memory</option>
+                    <option value="Tetris">Tetris</option>
+                    <option value="FotoMerge">Foto Merge</option>
+                    <option value="New" data-it="Nuova idea" data-en="New idea" data-de="Neue Idee"></option>
+                </select>
+
+                <textarea name="message" required
+                          data-ph-it="Descrivi la tua idea..." data-ph-en="Describe your idea..." data-ph-de="Beschreibe deine Idee..."></textarea>
+
+                <button type="submit" class="btn-submit"
+                        data-it="Invia ora" data-en="Send now" data-de="Senden"></button>
+            </form>
+        </div>
     </div>
 
-    <div class="widget-panel" id="widgetPanel">
-        <div class="panel-header">
-            <h3 id="panel-title">Invia un'idea</h3>
-            <button class="close-btn" onclick="toggleWidget()">×</button>
-        </div>
-        
-        <form action="https://formspree.io/f/mojpevpa" method="POST" class="widget-form">
-            <input type="text" name="name" id="field-name" placeholder="Tuo Nickname" required>
-            
-            <select name="game" id="field-game" required>
-                <option value="" disabled selected id="opt-select">Seleziona gioco</option>
-                <option value="Snake">Snake Game</option>
-                <option value="Memory">Emoji Memory</option>
-                <option value="Core">Tetris</option>
-                <option value="New">Nuova Idea</option>
-            </select>
-            
-            <textarea name="message" id="field-msg" placeholder="Descrivi la tua idea..." required></textarea>
-            
-            <button type="submit" class="btn-submit" id="btn-send">Invia ora</button>
-        </form>
-    </div>
-</div>
     <script src="script.js"></script>
 </body>
 </html>
